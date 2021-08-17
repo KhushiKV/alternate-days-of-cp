@@ -4,7 +4,7 @@
 "version": "1.0",
 "description": "An Extension",
 "browser_action": {
-  "default_popup": "popup.html"
+  "default_popup": "leaderBoard.html"
 },
 "permissions": [
   "contextMenus",
