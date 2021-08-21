@@ -8,7 +8,20 @@
 
 
 // (amarnath)
+let user_signed_in = false;
 
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse){
+    if(request.message === 'is_user_signed_in'){
+        sendResponse({
+            message: 'success',
+            payload: user_signed_in
+        });
+    } else if( request.message === 'sign_out'){
+        user_signed_in = false;
+        sendResponse({message: 'success'});
+    }
+    return true;
+})
 
 // (ashwin)
 // another dashboard Page and load according the variable signedIN,username,img-link, score
@@ -17,7 +30,7 @@
 
 
 // independent timer in leaderBoard
-//
+
 
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
